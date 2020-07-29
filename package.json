@@ -33,7 +33,7 @@
   "dependencies": {
     "download-pdf": "^0.1.6",
     "ora": "^4.0.5",
-    "pdf2json": "^1.2.0",
+    "pdf-parse": "^1.1.1",
     "readline-sync": "^1.4.10"
   }
 }
