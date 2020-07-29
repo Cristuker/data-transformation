@@ -7,6 +7,6 @@ downloadPDF(name)
   .then(() => {
     readerPDF(name);
   })
-  .catch(() => {
-    console.log('deu ruiim');
+  .catch((error) => {
+    console.log('Erro ao baixar o pdf', error);
   });
