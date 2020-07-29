@@ -1,17 +1,8 @@
-import { createInterface } from 'readline';
-import downloadPDF from './helpers/download';
+import { downloadPDF, readerPDF } from './helpers';
+import Questions from './questions';
 
-let name;
-const prompt = createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const name = Questions();
+console.log(name);
 
-prompt.question(
-  'Qual é o nome que deseja inserir no arquivo? \n\nExemplo: Teste*Intuitive_Care*{seu_nome}.zip \n-> ',
-  (resposta) => {
-    name = resposta;
-    downloadPDF(name);
-    prompt.close();
-  }
-);
+downloadPDF(name);
+readerPDF(name);
