@@ -15,7 +15,7 @@ const downloadPDF = (name) => {
       const fileExits = existsSync(filenameAndPath);
 
       if (fileExits) {
-        console.log('Já existe um arquivo com esse nome!');
+        console.log('Já existe um arquivo com esse nome! \n');
         return resolve();
       }
 
@@ -39,8 +39,8 @@ const downloadPDF = (name) => {
 
         spinner.stop();
         spinner.succeed('Download concluido!');
-        resolve();
       });
+      return resolve();
     });
   } catch (error) {
     throw new Error(`Error: ${error}`);
