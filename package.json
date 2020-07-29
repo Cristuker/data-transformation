@@ -31,6 +31,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "download-pdf": "^0.1.6"
+    "download-pdf": "^0.1.6",
+    "ora": "^4.0.5"
   }
 }

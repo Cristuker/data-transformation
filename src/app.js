@@ -8,10 +8,10 @@ const prompt = createInterface({
 });
 
 prompt.question(
-  'Qual é o nome que deseja inserir no arquivo? \n Exemplo: Teste*Intuitive_Care*{seu_nome}.zip',
+  'Qual é o nome que deseja inserir no arquivo? \n\nExemplo: Teste*Intuitive_Care*{seu_nome}.zip \n-> ',
   (resposta) => {
     name = resposta;
+    getPDF(name);
+    prompt.close();
   }
 );
-
-getPDF(name);
