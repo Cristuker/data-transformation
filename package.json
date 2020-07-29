@@ -1,33 +1,36 @@
 {
-    "name": "data-transformation",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Cristuker/data-transformation.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Cristuker/data-transformation/issues"
-    },
-    "homepage": "https://github.com/Cristuker/data-transformation#readme",
-    "devDependencies": {
-        "eslint": "^7.5.0",
-        "eslint-config-airbnb-base": "^14.2.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.22.0",
-        "eslint-plugin-prettier": "^3.1.4",
-        "git-commit-msg-linter": "^2.4.4",
-        "husky": "^4.2.5",
-        "lint-staged": "^8.1.7"
-    },
-    "dependencies": {
-        "prettier": "^2.0.5"
-    }
+  "name": "data-transformation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "sucrase-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cristuker/data-transformation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cristuker/data-transformation/issues"
+  },
+  "homepage": "https://github.com/Cristuker/data-transformation#readme",
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "git-commit-msg-linter": "^2.4.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^8.1.7",
+    "sucrase": "^3.15.0",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "download-pdf": "^0.1.6"
+  }
 }
