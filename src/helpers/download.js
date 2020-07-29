@@ -1,3 +1,5 @@
+import { existsSync } from 'fs';
+import { resolve as pathResolve } from 'path';
 import download from 'download-pdf';
 import ora from 'ora';
 
@@ -5,6 +7,18 @@ const spinner = ora('Baixando o pdf');
 const downloadPDF = (name) => {
   try {
     return new Promise((resolve) => {
+      const filenameAndPath = pathResolve(
+        'pdf',
+        `Teste_Intuitive_Care_${name}.pdf`
+      );
+
+      const fileExits = existsSync(filenameAndPath);
+
+      if (fileExits) {
+        console.log('Já existe um arquivo com esse nome!');
+        return resolve();
+      }
+
       console.log('Iniciando download...');
 
       const pdf =
