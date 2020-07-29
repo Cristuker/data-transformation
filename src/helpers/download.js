@@ -2,7 +2,7 @@ import download from 'download-pdf';
 import ora from 'ora';
 
 const spinner = ora('Baixando o pdf');
-const getPDF = (name) => {
+const downloadPDF = (name) => {
   try {
     console.log('Iniciando download...');
 
@@ -29,4 +29,4 @@ const getPDF = (name) => {
     throw new Error(`Error: ${error}`);
   }
 };
-export default getPDF;
+export default downloadPDF;
