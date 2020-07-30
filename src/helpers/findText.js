@@ -1,22 +1,36 @@
-const findText = (buffer) => {
-  const quadro30 =
-    'Tabela de Tipo do Demandante Código Descrição da categoria 1 Operadora 2 Prestador de serviço 3 Consumidor 4 Gestor 5 ANS';
+import { table30, table31, table32 } from '../data/tables';
 
-  const quadro30Array = quadro30.split(' ');
-  const bufferArray = buffer.split(' ');
-  const totalWord = quadro30Array.length;
-  const wordsFinded = [];
-
-  for (let index = 0; index < totalWord; index += 1) {
-    // eslint-disable-next-line array-callback-return
-    bufferArray.map((word) => {
-      if (word === quadro30Array[index]) {
-        wordsFinded.push(word);
-        quadro30Array[index] = '*';
+const searchForText = (pdfBuffer, tableWords) => {
+  const words = tableWords;
+  const finded = [];
+  for (let index = 0; index < words.length; index += 1) {
+    pdfBuffer.map((word) => {
+      if (word === words[index]) {
+        finded.push(word);
+        words[index] = '*';
       }
     });
   }
-  console.table(wordsFinded);
+
+  return finded;
+};
+
+const findText = (buffer) => {
+  return new Promise((resolve) => {
+    const table30Array = table30.split(' ');
+    const table31Array = table31.split(' ');
+    const table32Array = table32.split(' ');
+    const bufferArray = buffer.split(' ');
+
+    const wordsFinded30 = searchForText(bufferArray, table30Array);
+    const wordsFinded31 = searchForText(bufferArray, table31Array);
+    const wordsFinded32 = searchForText(bufferArray, table32Array);
+    console.table(wordsFinded30);
+    console.table(wordsFinded31);
+    console.table(wordsFinded32);
+    resolve();
+    return [wordsFinded30, wordsFinded31, wordsFinded32];
+  });
 };
 
 export default findText;
