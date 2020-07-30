@@ -2,7 +2,7 @@ import readfileSync from 'readline-sync';
 
 const Question = () => {
   const name = readfileSync.question(
-    'Qual é o nome que deseja inserir no arquivo? \n\nExemplo: Teste*Intuitive_Care*_{seu_nome}.zip \n-> '
+    'Qual é o nome que deseja inserir no arquivo? \n\nExemplo: Teste_PDF_File_{name}.zip \n-> '
   );
 
   return name;
