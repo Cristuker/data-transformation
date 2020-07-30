@@ -3,10 +3,13 @@ import Questions from './questions';
 
 const name = Questions();
 
-downloadPDF(name)
-  .then(() => {
-    readerPDF(name);
-  })
-  .catch((error) => {
-    console.log('Erro ao baixar o pdf', error);
-  });
+async function main() {
+  try {
+    await downloadPDF(name);
+    await readerPDF(name);
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+main();
