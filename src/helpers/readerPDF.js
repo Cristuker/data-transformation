@@ -6,12 +6,17 @@ import findText from './findText';
 const readerPDF = async (name) => {
   const filenameAndPath = resolve('pdf', `Teste_Intuitive_Care_${name}.pdf`);
   const buffer = readFileSync(filenameAndPath);
-  console.log('Começando a busca pelos quadros  \n');
-  PDFParser(buffer).then((data) => {
-    //console.log(data.text);
-    findText(data.text);
-  });
   console.log('Arquivo localizado');
+  console.log('Começando a busca pelos quadros  \n');
+  let dataFinded;
+  PDFParser(buffer).then((data) => {
+    findText(data.text)
+      .then((dataFiltred) => {
+        dataFinded = dataFiltred;
+        console.table(dataFinded);
+      })
+      .catch((error) => console.log('Error: ', error));
+  });
 };
 
 export default readerPDF;
