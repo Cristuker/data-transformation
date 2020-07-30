@@ -12,6 +12,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-console": "off",
-    "array-callback-return": "off"
+    "array-callback-return": "off",
+    "consistent-return": "off"
   }
 }

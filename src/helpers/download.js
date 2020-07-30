@@ -6,12 +6,8 @@ import ora from 'ora';
 const spinner = ora('Baixando o pdf');
 const downloadPDF = (name) => {
   try {
-    // eslint-disable-next-line consistent-return
     return new Promise((resolve) => {
-      const filenameAndPath = pathResolve(
-        'pdf',
-        `Teste_Intuitive_Care_${name}.pdf`
-      );
+      const filenameAndPath = pathResolve('pdf', `Teste_PDF_File_${name}.pdf`);
 
       const fileExits = existsSync(filenameAndPath);
 
@@ -27,7 +23,7 @@ const downloadPDF = (name) => {
 
       const options = {
         directory: './pdf',
-        filename: `Teste_Intuitive_Care_${name}.pdf`,
+        filename: `Teste_PDF_File_${name}.pdf`,
       };
 
       spinner.start();
