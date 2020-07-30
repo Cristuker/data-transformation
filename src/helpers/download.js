@@ -6,6 +6,7 @@ import ora from 'ora';
 const spinner = ora('Baixando o pdf');
 const downloadPDF = (name) => {
   try {
+    // eslint-disable-next-line consistent-return
     return new Promise((resolve) => {
       const filenameAndPath = pathResolve(
         'pdf',
@@ -30,7 +31,6 @@ const downloadPDF = (name) => {
       };
 
       spinner.start();
-
       download(pdf, options, (error) => {
         if (error) {
           spinner.fail('Houve um erro ao baixar o pdf!');
@@ -39,8 +39,8 @@ const downloadPDF = (name) => {
 
         spinner.stop();
         spinner.succeed('Download concluido!');
+        return resolve();
       });
-      return resolve();
     });
   } catch (error) {
     throw new Error(`Error: ${error}`);
