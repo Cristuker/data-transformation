@@ -43,7 +43,7 @@ const downloadPDF = (name) => {
       });
     });
   } catch (error) {
-    throw new Error(`Error: ${error}`);
+    throw new Error(`Error on download: ${error}`);
   }
 };
 export default downloadPDF;

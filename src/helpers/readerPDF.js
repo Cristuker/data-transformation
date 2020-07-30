@@ -14,8 +14,9 @@ const readerPDF = async (name) => {
       .then((dataFiltred) => {
         dataFinded = dataFiltred;
         console.table(dataFinded);
+        return dataFinded;
       })
-      .catch((error) => console.log('Error: ', error));
+      .catch((error) => console.log('Error on reader: ', error));
   });
 };
 
