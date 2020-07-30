@@ -12,6 +12,7 @@ const readerPDF = async (name) => {
     let dataFinded;
     PDFParser(buffer).then(async (data) => {
       dataFinded = await findText(data.text);
+      console.log('Textos encontrados com sucesso!');
       return resolve(dataFinded);
     });
   });
