@@ -1,10 +1,17 @@
-import { downloadPDF, readerPDF, csvCreator, zipCreator } from './helpers';
+import {
+  downloadPDF,
+  readerPDF,
+  csvCreator,
+  zipCreator,
+  createEssentialsDir,
+} from './helpers';
 import Questions from './questions';
 
 const options = Questions();
 
 async function main() {
   try {
+    createEssentialsDir();
     await downloadPDF(options);
     const tableData = await readerPDF(options);
     await csvCreator(tableData, options);
