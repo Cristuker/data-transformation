@@ -1,7 +1,7 @@
 import { resolve } from 'path';
-import { execSync } from 'child_process';
+import { zip } from 'zip-a-folder';
 
-const zipCreator = ({ name }) => {
+const zipCreator = async ({ name }) => {
   console.log('Iniciando o processo de zipagem...');
 
   try {
@@ -11,9 +11,9 @@ const zipCreator = ({ name }) => {
       'zip',
       `Teste_Intuitive_Care_${name}.zip`
     );
-    execSync(`zip -r ${fileZiped} *`, {
-      cwd: fileToByZiped,
-    });
+
+    await zip(fileToByZiped, fileZiped);
+
     console.log('Processo de zipagem concluido!');
   } catch (error) {
     throw Error(error);

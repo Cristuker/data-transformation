@@ -37,6 +37,7 @@ Entre na pasta do projeto e rode os seguintes comandos:
 - [pdf-parse](https://www.npmjs.com/package/pdf-parse)
 - [readlineSync](https://www.npmjs.com/package/readline-sync)
 - [Sucrase](https://www.npmjs.com/package/sucrase)
+- [zip-a-folder](https://www.npmjs.com/package/zip-a-folder)
 
 > Esse projeto usa o padrão de [convetional commits](https://github.com/conventional-changelog/commitlint)
 
