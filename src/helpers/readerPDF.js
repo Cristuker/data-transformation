@@ -1,9 +1,11 @@
 import { resolve as resolvePath } from 'path';
 import { readFileSync } from 'fs';
 import PDFParser from 'pdf-parse';
+import ora from 'ora';
 import findText from './findText';
 
 const readerPDF = async ({ alternativeTexts }) => {
+  const spinner = ora('\nBuscando pelo pdf...');
   return new Promise((resolve) => {
     const filenameAndPath = resolvePath(
       'ExternalFiles',
@@ -11,12 +13,11 @@ const readerPDF = async ({ alternativeTexts }) => {
       `Teste_PDF_File.pdf`
     );
     const buffer = readFileSync(filenameAndPath);
-    console.log('Arquivo localizado');
-    console.log('Começando a busca pelos quadros...  \n');
+    spinner.succeed('Arquivo localizado');
 
     PDFParser(buffer).then(async (data) => {
       const dataFinded = await findText(data.text, alternativeTexts);
-      console.log('Textos encontrados com sucesso!');
+      spinner.succeed('Textos encontrados com sucesso!\n');
       return resolve(dataFinded);
     });
   });

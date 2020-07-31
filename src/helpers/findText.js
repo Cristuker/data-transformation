@@ -1,3 +1,4 @@
+import ora from 'ora';
 import { table30, table31, table32 } from '../data/tables';
 
 const searchForText = (pdfBuffer, tableWords) => {
@@ -17,14 +18,17 @@ const searchForText = (pdfBuffer, tableWords) => {
 
 const findText = (buffer, alternativeTexts) => {
   return new Promise((resolve) => {
+    const spinner = ora('Começando a busca pelos textos...');
     const bufferArray = buffer.split(' ');
     if (!alternativeTexts) {
       const table30Array = table30.split(' ');
       const table31Array = table31.split(' ');
       const table32Array = table32.split(' ');
+      spinner.start();
       const wordsFinded30 = searchForText(bufferArray, table30Array);
       const wordsFinded31 = searchForText(bufferArray, table31Array);
       const wordsFinded32 = searchForText(bufferArray, table32Array);
+      spinner.succeed();
       return resolve([
         { prefix: 'table30', data: wordsFinded30 },
         { prefix: 'table31', data: wordsFinded31 },

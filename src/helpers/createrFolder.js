@@ -1,7 +1,9 @@
 import { existsSync, mkdir } from 'fs';
 import { resolve } from 'path';
+import ora from 'ora';
 
 const createEssentialsDir = () => {
+  const spinner = ora('Criando pastas necessárias para o projeto...');
   const dirToCreate = [
     resolve('ExternalFiles'),
     resolve('ExternalFiles', 'csv'),
@@ -9,19 +11,20 @@ const createEssentialsDir = () => {
     resolve('ExternalFiles', 'zip'),
   ];
   dirToCreate.map((dir) => {
-    // Verifica se não existe
+    spinner.start();
+    if (existsSync(dir)) spinner.succeed(`A pasta (${dir}) já existe!`);
     if (!existsSync(dir)) {
-      // Efetua a criação do diretório
       mkdir(dir, (err) => {
         if (err) {
-          console.log('Erro ao criar as pastas...', err);
+          spinner.fail('Erro ao criar as pastas...', err);
           return;
         }
 
-        console.log(`Diretório ${dir} criado!`);
+        spinner.succeed(`Diretório (${dir}) criado!`);
       });
     }
   });
+  console.log('\n');
 };
 
 export default createEssentialsDir;

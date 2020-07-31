@@ -1,5 +1,6 @@
 import { writeFile } from 'fs';
 import { resolve as resolvePath } from 'path';
+import ora from 'ora';
 
 function writeCSV({ data, prefix }, name) {
   let csv = prefix;
@@ -17,11 +18,12 @@ function writeCSV({ data, prefix }, name) {
 const csvCreator = (tableData, { name }) => {
   return new Promise((resolve) => {
     try {
-      console.log('Iniciando a criação do csv...');
+      const spinner = ora('\nIniciando a criação do csv...');
+      spinner.start();
       tableData.forEach((table) => {
         writeCSV(table, name);
       });
-      console.log('CSVs criados com sucesso!');
+      spinner.succeed('CSVs criados com sucesso!\n');
       return resolve();
     } catch (error) {
       console.log('Error on CSV creator: ', error);

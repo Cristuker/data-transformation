@@ -16,12 +16,11 @@ const downloadPDF = () => {
       const fileExits = existsSync(filenameAndPath);
 
       if (fileExits) {
-        console.log('Já existe um arquivo com esse nome! \n');
+        spinner.info('Já existe um arquivo com esse nome!');
         return resolve();
       }
 
-      console.log('Iniciando download...');
-
+      console.log('Iniciando download do pdf...');
       const pdf =
         'http://www.ans.gov.br/images/stories/Plano_de_saude_e_Operadoras/tiss/Padrao_tiss/tiss3/Padrao_TISS_Componente_Organizacional_201704.pdf';
       const savePDFDirectory = pathResolve('ExternalFiles', 'pdf');
