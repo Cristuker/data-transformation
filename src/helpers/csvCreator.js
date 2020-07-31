@@ -16,12 +16,11 @@ function writeCSV(data, prefix, name) {
 
 const csvCreator = (tableData, name) => {
   return new Promise((resolve) => {
-    const [tableData30, tableData31, tableData32] = tableData;
     try {
       console.log('Iniciando a criação do csv...');
-      writeCSV(tableData30, 'table30', name);
-      writeCSV(tableData31, 'table31', name);
-      writeCSV(tableData32, 'table32', name);
+      tableData.forEach((table) => {
+        writeCSV(table.data, table.prefix, name);
+      });
       console.log('CSVs criados com sucesso!');
       return resolve();
     } catch (error) {

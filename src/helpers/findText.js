@@ -25,7 +25,11 @@ const findText = (buffer) => {
     const wordsFinded30 = searchForText(bufferArray, table30Array);
     const wordsFinded31 = searchForText(bufferArray, table31Array);
     const wordsFinded32 = searchForText(bufferArray, table32Array);
-    return resolve([wordsFinded30, wordsFinded31, wordsFinded32]);
+    return resolve([
+      { prefix: 'table30', data: wordsFinded30 },
+      { prefix: 'table31', data: wordsFinded31 },
+      { prefix: 'table32', data: wordsFinded32 },
+    ]);
   });
 };
 
