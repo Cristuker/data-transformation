@@ -7,7 +7,11 @@ const spinner = ora('Baixando o pdf');
 const downloadPDF = (name) => {
   try {
     return new Promise((resolve) => {
-      const filenameAndPath = pathResolve('pdf', `Teste_PDF_File_${name}.pdf`);
+      const filenameAndPath = pathResolve(
+        'ExternalFiles',
+        'pdf',
+        `Teste_PDF_File_${name}.pdf`
+      );
 
       const fileExits = existsSync(filenameAndPath);
 
@@ -20,9 +24,9 @@ const downloadPDF = (name) => {
 
       const pdf =
         'http://www.ans.gov.br/images/stories/Plano_de_saude_e_Operadoras/tiss/Padrao_tiss/tiss3/Padrao_TISS_Componente_Organizacional_201704.pdf';
-
+      const savePDFDirectory = pathResolve('ExternalFiles', 'pdf');
       const options = {
-        directory: './pdf',
+        directory: savePDFDirectory,
         filename: `Teste_PDF_File_${name}.pdf`,
       };
 

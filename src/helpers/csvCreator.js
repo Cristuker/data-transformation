@@ -5,7 +5,7 @@ function writeCSV(data, prefix, name) {
   let csv = prefix;
   data.forEach((element) => {
     csv += `,${element}`;
-    const path = resolvePath('src', 'csv');
+    const path = resolvePath('ExternalFiles', 'csv');
     writeFile(`${path}/${prefix}-${name}.csv`, csv, (err) => {
       if (err) {
         return console.log('err', err);
