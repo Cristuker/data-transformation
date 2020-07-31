@@ -7,7 +7,6 @@ Teste feito para IntuitiveCare, onde o objetivo é pegar as informações de 4 q
 ### 🎒 Pré-requisitos
 
 - Node.js >=v12.16.3
-- [Info zip](http://infozip.sourceforge.net/Zip.html)
 
 ### 🏁 Como rodar
 
