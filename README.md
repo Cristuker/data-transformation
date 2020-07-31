@@ -1,8 +1,10 @@
 # 💾 Data Transformation
 
-<img alt="Status shield" src="https://img.shields.io/badge/Status-Done-brightgreen?style=flat-square" />
-<img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" />
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Cristuker/data-transformation">
+<div style="display: flex; flex-direction: row">
+    <img alt="Status shield" src="https://img.shields.io/badge/Status-Done-brightgreen?style=flat-square" />
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" />
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Cristuker/data-transformation?style=flat-square">
+</div>
 
 Teste feito para IntuitiveCare, onde o objetivo é pegar as informações de 4 quadros(30, 31, 32) que estão contidos nesse [PDF](http://www.ans.gov.br/images/stories/Plano_de_saude_e_Operadoras/tiss/Padrao_tiss/tiss3/Padrao_TISS_Componente_Organizacional_201704.pdf) e passar para CSV.
 
