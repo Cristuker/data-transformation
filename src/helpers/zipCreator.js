@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { execSync } from 'child_process';
 
-const zipCreator = (name) => {
+const zipCreator = ({ name }) => {
   console.log('Iniciando o processo de zipagem...');
 
   try {

@@ -4,13 +4,13 @@ import download from 'download-pdf';
 import ora from 'ora';
 
 const spinner = ora('Baixando o pdf');
-const downloadPDF = (name) => {
+const downloadPDF = () => {
   try {
     return new Promise((resolve) => {
       const filenameAndPath = pathResolve(
         'ExternalFiles',
         'pdf',
-        `Teste_PDF_File_${name}.pdf`
+        `Teste_PDF_File.pdf`
       );
 
       const fileExits = existsSync(filenameAndPath);
@@ -27,7 +27,7 @@ const downloadPDF = (name) => {
       const savePDFDirectory = pathResolve('ExternalFiles', 'pdf');
       const options = {
         directory: savePDFDirectory,
-        filename: `Teste_PDF_File_${name}.pdf`,
+        filename: `Teste_PDF_File.pdf`,
       };
 
       spinner.start();

@@ -1,7 +1,7 @@
 import { writeFile } from 'fs';
 import { resolve as resolvePath } from 'path';
 
-function writeCSV(data, prefix, name) {
+function writeCSV({ data, prefix }, name) {
   let csv = prefix;
   data.forEach((element) => {
     csv += `,${element}`;
@@ -14,12 +14,12 @@ function writeCSV(data, prefix, name) {
   });
 }
 
-const csvCreator = (tableData, name) => {
+const csvCreator = (tableData, { name }) => {
   return new Promise((resolve) => {
     try {
       console.log('Iniciando a criação do csv...');
       tableData.forEach((table) => {
-        writeCSV(table.data, table.prefix, name);
+        writeCSV(table, name);
       });
       console.log('CSVs criados com sucesso!');
       return resolve();
